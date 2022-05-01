@@ -8,9 +8,6 @@ function computerPlay() {
 let userScore = 0;
 let computerScore = 0;
 
-let rounds = 0;
-
-
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
     return "Tie!";
@@ -61,12 +58,6 @@ function playRound(playerSelection, computerSelection) {
      }
     }
   }
-  
   game();
-
-
-
-
-
   
  
