@@ -8,6 +8,8 @@ function computerPlay() {
 let userScore = 0;
 let computerScore = 0;
 
+let rounds = 0;
+
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
@@ -35,7 +37,7 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "scissors" && computerSelection !== "paper") {
     computerScore++;
     return "You Lose! "+computerSelection+" beats scissors";
-  }
+  }  
 }
 
   function game() {
@@ -44,7 +46,19 @@ function playRound(playerSelection, computerSelection) {
       const computerSelection = computerPlay();
      console.log(playRound(playerSelection.toLowerCase(), computerSelection));
      console.log("User score: "+userScore);
-     console.log("Computer score: "+computerScore);    
+     console.log("Computer score: "+computerScore);  
+     while (i === 5) {
+       if (userScore > computerScore) {
+         console.log("You win!!!");
+         break;
+       } else if (userScore < computerScore) {
+         console.log("You lose! :(")
+         break;
+       } else if (userScore == computerScore) {
+         console.log("Draw game!")
+         break;
+       }
+     }
     }
   }
   
