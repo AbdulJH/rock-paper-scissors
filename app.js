@@ -25,7 +25,7 @@ function playRound(playerSelection, computerSelection) {
 
   if (playerSelection === "paper" && computerSelection === "rock")  {
     userScore++;
-    return "Round wonn! Paper beats Rock";
+    return "Round won! Paper beats Rock";
   } else if (playerSelection === "paper" && computerSelection !== "rock") {
     computerScore++;
     return "Round loss! "+computerSelection+" beats paper";
@@ -64,21 +64,33 @@ function rpsClick() {
 }
 
 function trackScores() {
-  document.getElementById("gameScore").innerHTML =("User score: "+userScore)+ (" Computer score: "+computerScore);
+  // document.getElementById("gameScore").innerHTML =("User score: "+userScore)+ (" Computer score: "+computerScore);
+
+   document.getElementById("gameScore").innerHTML =("Score: "+userScore+"-"+computerScore);
+
 
   if (userScore === 5 && computerScore !== 5) {
-    document.getElementById("finalScore").innerHTML = ("Users wins game!!!")
+    document.getElementById("finalScore").innerHTML = ("Users wins game!");
+    gameOver();
+    timeFunction();
   } else if (userScore !== 5 && computerScore === 5) {
-    document.getElementById("finalScore").innerHTML = ("Computer wins game :(")
+    document.getElementById("finalScore").innerHTML = ("Computer wins game :(");
+    gameOver();
+    timeFunction();
   }
 }
 
 function gameOver() {
-  
+  document.getElementById("btn1").disabled = true;
+  document.getElementById("btn2").disabled = true;
+  document.getElementById("btn3").disabled = true;
+
+  setTimeout(function(){ alert("Refresh to play again!"); }, 2200);
 }
 
 rpsClick();
 trackScores(); 
+
 
 
 
