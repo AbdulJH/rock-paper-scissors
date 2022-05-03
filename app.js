@@ -8,6 +8,9 @@ function computerPlay() {
 let userScore = 0;
 let computerScore = 0;
 
+// const playerSelection = prompt("Rock, paper, or scissors");
+const computerSelection = computerPlay();
+
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
     return "Tie!";
@@ -34,30 +37,37 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "scissors" && computerSelection !== "paper") {
     computerScore++;
     return "You Lose! "+computerSelection+" beats scissors";
-  }  
+  }   
 }
+//  console.log(playRound("playerSelection",computerSelection));
+//  const btn = document.querySelector("#btn1");
+//  btn.onclick = () => console.log(playRound("rock", computerSelection));
 
-  function game() {
-    for (let i=0; i<6; i++) {
-      let playerSelection = prompt("Rock, Paper, or Scissors");
-      const computerSelection = computerPlay();
-     console.log(playRound(playerSelection.toLowerCase(), computerSelection));
-     console.log("User score: "+userScore);
-     console.log("Computer score: "+computerScore);  
-     while (i === 5) {
-       if (userScore > computerScore) {
-         console.log("You win!!!");
-         break;
-       } else if (userScore < computerScore) {
-         console.log("You lose! :(")
-         break;
-       } else if (userScore == computerScore) {
-         console.log("Draw game!")
-         break;
-       }
-     }
-    }
-  }
-  game();
+
+function rpsClick() {
+  //rock button
+  const btn1 = document.querySelector("#btn1");
+  btn1.addEventListener("click", () => {
+   console.log(playRound("rock", computerSelection));
+  });
+  //paper button
+  const btn2 = document.querySelector("#btn2");
+  btn2.addEventListener("click", () => {
+   console.log(playRound("paper", computerSelection));
+  });
+  //scissors button
+  const btn3 = document.querySelector("#btn3");
+  btn3.addEventListener("click", () => {
+   console.log(playRound("scissors", computerSelection));
+  });
+}
+rpsClick();
+
+
+
+
+
+
+
   
  
