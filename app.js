@@ -44,22 +44,34 @@ function playRound(playerSelection, computerSelection) {
 //  btn.onclick = () => console.log(playRound("rock", computerSelection));
 
 
+
 function rpsClick() {
+  const container = document.getElementById("container");
+  let test = document.getElementById("test");
+  let test2 = document.getElementById("test2");
+  test2.textContent = userScore;
+
   //rock button
   const btn1 = document.querySelector("#btn1");
   btn1.addEventListener("click", () => {
-   console.log(playRound("rock", computerSelection));
+    test.textContent = playRound("rock", computerPlay());
   });
   //paper button
   const btn2 = document.querySelector("#btn2");
   btn2.addEventListener("click", () => {
-   console.log(playRound("paper", computerSelection));
+    test.textContent = playRound("paper", computerPlay());
   });
   //scissors button
   const btn3 = document.querySelector("#btn3");
   btn3.addEventListener("click", () => {
-   console.log(playRound("scissors", computerSelection));
+    test.textContent = playRound("scissors", computerPlay());
   });
+
+}
+
+function removeListen() {
+
+
 }
 rpsClick();
 
