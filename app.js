@@ -20,7 +20,7 @@ function playRound(playerSelection, computerSelection) {
     return "Round won! Rock beats scissors";
   } else if (playerSelection === "rock" && computerSelection !== "scissors") {
     computerScore++;
-    return "Round Loss! "+computerSelection+" beats rock";
+    return "Round loss! "+computerSelection+" beats rock";
   }
 
   if (playerSelection === "paper" && computerSelection === "rock")  {
@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
     return "Round won! Scissors beats Paper";
   } else if (playerSelection === "scissors" && computerSelection !== "paper") {
     computerScore++;
-    return "Round Loss! "+computerSelection+" beats scissors";
+    return "Round loss! "+computerSelection+" beats scissors";
   }   
 }
 
