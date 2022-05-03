@@ -17,69 +17,68 @@ function playRound(playerSelection, computerSelection) {
   }
   if (playerSelection === "rock" && computerSelection === "scissors")  {
     userScore++;
-    return "You win! Rock beats scissors";
+    return "Round won! Rock beats scissors";
   } else if (playerSelection === "rock" && computerSelection !== "scissors") {
     computerScore++;
-    return "You Lose! "+computerSelection+" beats rock";
+    return "Round Loss! "+computerSelection+" beats rock";
   }
 
   if (playerSelection === "paper" && computerSelection === "rock")  {
     userScore++;
-    return "You win! Paper beats Rock";
+    return "Round wonn! Paper beats Rock";
   } else if (playerSelection === "paper" && computerSelection !== "rock") {
     computerScore++;
-    return "You Lose! "+computerSelection+" beats paper";
+    return "Round loss! "+computerSelection+" beats paper";
   }
 
   if (playerSelection === "scissors" && computerSelection === "paper")  {
     userScore++;
-    return "You win! Scissors beats Paper";
+    return "Round won! Scissors beats Paper";
   } else if (playerSelection === "scissors" && computerSelection !== "paper") {
     computerScore++;
-    return "You Lose! "+computerSelection+" beats scissors";
+    return "Round Loss! "+computerSelection+" beats scissors";
   }   
 }
-//  console.log(playRound("playerSelection",computerSelection));
-//  const btn = document.querySelector("#btn1");
-//  btn.onclick = () => console.log(playRound("rock", computerSelection));
-
 
 
 function rpsClick() {
   const container = document.getElementById("container");
-  let test = document.getElementById("test");
-  let test2 = document.getElementById("test2");
-  test2.textContent = userScore;
-
   //rock button
   const btn1 = document.querySelector("#btn1");
   btn1.addEventListener("click", () => {
     test.textContent = playRound("rock", computerPlay());
+    trackScores();
   });
   //paper button
   const btn2 = document.querySelector("#btn2");
   btn2.addEventListener("click", () => {
     test.textContent = playRound("paper", computerPlay());
+    trackScores();
   });
   //scissors button
   const btn3 = document.querySelector("#btn3");
   btn3.addEventListener("click", () => {
     test.textContent = playRound("scissors", computerPlay());
+    trackScores();
   });
-
 }
 
-function removeListen() {
+function trackScores() {
+  document.getElementById("gameScore").innerHTML =("User score: "+userScore)+ (" Computer score: "+computerScore);
 
-
+  if (userScore === 5 && computerScore !== 5) {
+    document.getElementById("finalScore").innerHTML = ("Users wins game!!!")
+  } else if (userScore !== 5 && computerScore === 5) {
+    document.getElementById("finalScore").innerHTML = ("Computer wins game :(")
+  }
 }
-rpsClick();
 
-
-
-
-
-
-
+function gameOver() {
   
- 
+}
+
+rpsClick();
+trackScores(); 
+
+
+
